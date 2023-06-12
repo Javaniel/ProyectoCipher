@@ -1,32 +1,34 @@
-/* "const o "let" = declaración de una variable
-    "cipher" es el nombre de la variable
-    "=" inicia y declara tu variable */
+document.getElementById('cifradoForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const texto = document.getElementById('textoCifrar').value;
+  const desplazamiento = document.getElementById('desplazamiento').value;
+  const resultado = cifrarTexto(texto, parseInt(desplazamiento));
+  document.getElementById('resultado').textContent = `Texto cifrado: ${resultado}`;
+});
 
-/* let password ="";
+document.getElementById('descifradoForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const texto = document.getElementById('textoDescifrar').value;
+  const desplazamiento = document.getElementById('desplazamiento').value;
+  const resultado = descifrarTexto(texto, parseInt(desplazamiento));
+  document.getElementById('resultado').textContent = `Texto descifrado: ${resultado}`;
+});
 
-
-const cipher = function cifrado(password){
-
-  };
-  
-  export default cipher; */
-
-const alphabet = "abcdefghijklmnopqrstuvwxyz";
-
-function caesarCipher(message, shift) {
-  let cipheredMessage = "";
-  for (let i = 0; i < message.length; i++) {
-    const character = message[i];
-    const index = alphabet.indexOf(character);
-    if (index === -1) {
-      cipheredMessage += character;
-      continue;
+function cifrarTexto(texto, desplazamiento) {
+  let resultado = '';
+  for (let i = 0; i < texto.length; i++) {
+    let charCode = texto.charCodeAt(i);
+    if (charCode >= 65 && charCode <= 90) {
+      resultado += String.fromCharCode(((charCode - 65 + desplazamiento) % 26) + 65);
+    } else if (charCode >= 97 && charCode <= 122) {
+      resultado += String.fromCharCode(((charCode - 97 + desplazamiento) % 26) + 97);
+    } else {
+      resultado += texto.charAt(i);
     }
-    const cipheredIndex = (index + shift) % alphabet.length;
-    const cipheredCharacter = alphabet[cipheredIndex];
-    cipheredMessage += cipheredCharacter;
   }
-  return cipheredMessage;
+  return resultado;
 }
 
-console.log(caesarCipher("hola mundo", 3)); // "krod pxqgr"
+function descifrarTexto(texto, desplazamiento) {
+  return cifrarTexto(texto, 26 - desplazamiento);
+}

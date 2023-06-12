@@ -11,55 +11,29 @@
     <title>Ejercicio Cipher</title>
 </head>
 <body>
-<!--Interfaz de usuario (UI)
-La interfaz debe permitir al usuario:
-
-Elegir un desplazamiento (offset) indicando cuántas posiciones queremos que el cifrado desplace cada caracter.
-Insertar un mensaje (texto) que queremos cifrar.
-Ver el resultado del mensaje cifrado.
-Insertar un mensaje (texto) a descifrar.
-Ver el resultado del mensaje descifrado. -->
-    <!-- Navbar content -->
-    
-<main>
-    <div class="card-container">
-<!--         <div class="card-title">
-            <h1 id="title">Cifrador Caesar</h1>
-            <p id="subtitle">Su contraseña más segura</p>
-        </div> -->
-        <form class="card">
-            <h1 id="title">Cifrador Caesar</h1>
-            <p id="subtitle">Su contraseña más segura</p><br>
-
-            <input type="range" id="cifNum" min="1" max="10" step="1" list="markers" />
-            <datalist id="markers">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </datalist>
-            
-            <p>A continuación <b>escriba su contraseña</b></p>
-            <input type="text" placeholder="contraseña inicial">
-            <p>Resultado de su contraseña cifrada:</p>
-            <input type="text" placeholder="su nueva contraseña">
-            <hr>
-            <h3>¿Olvidó su contraseña?</h3>
-            <input type="text" placeholder="ingrese contraseña cifrada">
-            <h3>Contraseña cifrada</h3>
-            <input type="text" placeholder="su contraseña original">
-        </form>        
+    <div class="container">
+      <div class="card">
+        <h2>Cifrador César</h2>
+        <form id="cifradoForm">
+          <label for="textoCifrar">Texto a cifrar:</label>
+          <input type="text" id="textoCifrar" required>
+          <label for="desplazamiento">Desplazamiento:</label>
+          <input type="range" id="desplazamiento" min="0" max="10" value="0">
+          <button type="submit">Cifrar</button>
+        </form>
+        <hr>
+        <form id="descifradoForm">
+          <label for="textoDescifrar">Texto a descifrar:</label>
+          <input type="text" id="textoDescifrar" required>
+          <button type="submit">Descifrar</button>
+        </form>
+        <div id="resultado"></div>
+      </div>
     </div>
-</main>
-<!-- scripts -->
-<script type="module" src="index.js"></script>
-  
-</body>
+    
+    <script src="cipher.js"></script>
+  </body>
 </html>
+
+
+

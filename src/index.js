@@ -1,3 +1,3 @@
-import cipher from './cipher.js';
-
-console.log(cipher);
+import cifrarTexto from './cipher.js';
+    
+console.log(cifrarTexto);
