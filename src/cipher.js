@@ -32,3 +32,8 @@ function cifrarTexto(texto, desplazamiento) {
 function descifrarTexto(texto, desplazamiento) {
   return cifrarTexto(texto, 26 - desplazamiento);
 }
+
+function actualizarIndicador() {
+  const desplazamiento = document.getElementById('desplazamiento').value;
+  document.getElementById('indicador').textContent = desplazamiento;
+}

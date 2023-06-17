@@ -17,8 +17,10 @@
         <form id="cifradoForm">
           <label for="textoCifrar">Texto a cifrar:</label>
           <input type="text" id="textoCifrar" required>
+          <div class="espaciado"></div>
           <label for="desplazamiento">Desplazamiento:</label>
-          <input type="range" id="desplazamiento" min="0" max="10" value="0">
+          <input type="range" id="desplazamiento" min="0" max="10" value="0" oninput="actualizarIndicador()">
+          <div id="indicador">0</div>
           <button type="submit">Cifrar</button>
         </form>
         <hr>
@@ -27,6 +29,8 @@
           <input type="text" id="textoDescifrar" required>
           <button type="submit">Descifrar</button>
         </form>
+        <hr>
+        <h2>Texto Resultante:</h2>
         <div id="resultado"></div>
       </div>
     </div>
